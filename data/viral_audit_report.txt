@@ -1,0 +1,99 @@
+
+--- DATASET OVERVIEW ---
+Shape: (2000, 15)
+Columns: ['post_id', 'platform', 'content_type', 'topic', 'language', 'region', 'post_datetime', 'hashtags', 'views', 'likes', 'comments', 'shares', 'engagement_rate', 'sentiment_score', 'is_viral']
+Duplicate rows: 0
+Duplicate post IDs: 0
+Missing values:
+ post_id            0
+platform           0
+content_type       0
+topic              0
+language           0
+region             0
+post_datetime      0
+hashtags           0
+views              0
+likes              0
+comments           0
+shares             0
+engagement_rate    0
+sentiment_score    0
+is_viral           0
+
+--- PLATFORM DISTRIBUTION ---
+platform
+Instagram         539
+YouTube Shorts    499
+X                 485
+TikTok            477
+
+--- VIRAL LABEL DISTRIBUTION ---
+is_viral
+1    1398
+0     602
+Viral label values: [np.int64(0), np.int64(1)]
+
+--- NUMERIC QUALITY ---
+Invalid numeric values:
+ views              0
+likes              0
+comments           0
+shares             0
+engagement_rate    0
+Infinite numeric values:
+ views              0
+likes              0
+comments           0
+shares             0
+engagement_rate    0
+Negative values:
+ views              0
+likes              0
+comments           0
+shares             0
+engagement_rate    0
+Numeric summary:
+               views          likes      comments        shares  engagement_rate
+count  2.000000e+03    2000.000000   2000.000000   2000.000000      2000.000000
+mean   4.284860e+06  245329.244000  24786.929000  49936.981500         0.157852
+std    3.246193e+06  145032.423582  14433.288364  29012.818697         0.535457
+min    4.380000e+03     292.000000     14.000000    127.000000         0.035700
+25%    1.652742e+06  118903.750000  12337.750000  25698.750000         0.057975
+50%    3.469408e+06  239831.000000  24519.500000  50212.000000         0.084500
+75%    6.348078e+06  372323.500000  37116.250000  75433.000000         0.142525
+max    1.437179e+07  499983.000000  49989.000000  99977.000000        12.573200
+
+--- ENGAGEMENT RATE FORMULA CHECK ---
+Rows checked: 2000
+Rows matching (tolerance 0.0001): 2000
+Maximum difference: 4.998598634117085e-05
+
+--- DATE RANGE ---
+Invalid dates: 0
+Earliest date: 2024-01-01 00:00:00
+Latest date: 2024-12-31 00:00:00
+
+--- VIRAL LABEL BY PLATFORM ---
+is_viral            0      1
+platform                    
+Instagram       0.291  0.709
+TikTok          0.298  0.702
+X               0.303  0.697
+YouTube Shorts  0.313  0.687
+
+--- POSSIBLE LABEL LEAKAGE CHECK ---
+Metric distributions grouped by viral label:
+Label 0 = Non-viral, Label 1 = Viral
+                 views                                 likes                           comments                           shares                      engagement_rate                
+                  mean     median           std         mean    median          std        mean   median         std        mean   median         std            mean  median     std
+is_viral                                                                                                                                                                             
+0         1.013173e+06  1039210.0  5.701752e+05   95912.5050   72622.5   80346.6395  25182.3887  25006.0  14293.7700  50115.5199  50451.5  29456.0632          0.3397  0.1785  0.9501
+1         5.693697e+06  4996783.5  2.887917e+06  309670.3577  311422.5  116439.3278  24616.6381  24376.0  14494.7153  49860.1001  50212.0  28830.1452          0.0795  0.0675  0.0393
+
+--- MEAN DIFFERENCE (VIRAL - NON-VIRAL) ---
+views: non-viral mean=1013173.0864, viral mean=5693697.3856, difference=4680524.2992
+likes: non-viral mean=95912.5050, viral mean=309670.3577, difference=213757.8527
+comments: non-viral mean=25182.3887, viral mean=24616.6381, difference=-565.7506
+shares: non-viral mean=50115.5199, viral mean=49860.1001, difference=-255.4198
+engagement_rate: non-viral mean=0.3397, viral mean=0.0795, difference=-0.2602
